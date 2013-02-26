@@ -1,66 +1,6 @@
 /*
- *      ______                _ __   __           ____  __________
- *     / ____/___ ___  ____ _(_) /  / /_____     / __ \/ ___/ ___/
- *    / / __/ __ `__ \/ __ `/ / /  / __/ __ \   / /_/ /\__ \\__ \ 
- *   / /_/ / / / / / / /_/ / / /  / /_/ /_/ /  / _, _/___/ /__/ / 
- *   \____/_/ /_/ /_/\__,_/_/_/   \__/\____/  /_/ |_|/____/____/  
- *
- */
-
-/**********************************************************************
- * SYNOPSIS
- *********************************************************************/
-/*
- * This script allows one to check his Gmail inbox from an RSS reader.
- *
- * It runs as a Google Apps Script (see https://script.google.com/).
- *
- */
-
-/**********************************************************************
- * INSTALLATION
- *********************************************************************/
-/*
- * 1) Create a blank project on https://script.google.com/
- *
- * 2) Copy this script in your new project
- *
- * 3) Run the script by clicking Menu > Run > doGet
- *
- * 4) You will be asked whether you agree to grant this script access
- *    to your Gmail account. Accept the request.
- *
- * 5) Create a first version by clicking Menu > File > Manage Versions
- *
- * 6) Deploy this script by clicking Menu > Publish > Deploy as web app
- *
- * 7) If your RSS browser supports authentication for private feeds:
- *    - Select 'Execute the app as : User accessing the web app' 
- *    - Select 'Who has access to the app : Only me' 
- *    
- *    If your RSS browser does not support such authentication:
- *    - Select 'Execute the app as : me'
- *    - Select 'Who has access to the app : Anonyone, even anonymous'
- *
- *    Do *not* select the latter if you plan to run this script on your
- *    personnal Gmail account. You would expose all your mail to anyone
- *    on the Internet. You would rather use a test account.
- *
- *    Note that few RSS readers support authentication for private feeds.
- *    FeedDemon's pro version supports such authentication. Google Reader
- *    does not (http://support.google.com/reader/answer/78730).
- *
- * 8) You will be given a Google Apps Script URL. Paste it into your
- *    RSS reader. You may have to authenticate. The feed will display
- *    all messages contained in your inbox.
- *
- */
-
-/**********************************************************************
- * LICENSE
- *********************************************************************/
-/*
  * MIT License: www.opensource.org/licenses/mit-license.php
+ *
  * Copyright (c) 2013 Fengtan<https://github.com/Fengtan/>
  *
  * Permission is hereby granted, free of charge, to any person
@@ -82,12 +22,7 @@
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
- *
  */
-
-/**********************************************************************
- * SCRIPT
- *********************************************************************/
 
 /**
  * Processes the HTTP request and returns the RSS feed
@@ -100,7 +35,7 @@ function doGet() {
   var rssChannel = formatRssChannel(
     'Gmail (' + Session.getUser().getEmail() + ')',
     'https://mail.google.com/',
-    'Gmail to RSS | Check your inbox from an RSS reader with Google Apps Script',
+    'Gmail to RSS | Turn a Gmail inbox into an RSS feed',
     new Date(),
     rssItems
   );
